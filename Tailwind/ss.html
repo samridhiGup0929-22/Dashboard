@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>DevDash - Developer Dashboard</title>
+    <link href="./src/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-blue-900 flex items-center justify-center min-h-screen overflow-hidden">
+
+    <div class="flex w-full max-w-7xl h-[95vh] bg-blue-950 p-4">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-linear-to-b from-blue-900 to-blue-950 text-white flex flex-col">
+            <div class="p-6 text-2xl font-bold flex items-center gap-3">
+                ⚡ DevDash
+            </div>
+
+            <!-- //flex-1 puri height le lega -->
+            <nav class="flex-1 px-2 space-y-2">
+                <a class="block py-2 px-2 rounded bg-blue-800">Dashboard</a>
+                <a class="block py-2 px-2 rounded hover:bg-blue-800">Projects</a>
+                <a class="block py-2 px-2 rounded hover:bg-blue-800">Tasks</a>
+                <a class="block py-2 px-2 rounded hover:bg-blue-800">Messages</a>
+                <a class="block py-2 px-2 rounded hover:bg-blue-800">Settings</a>
+            </nav>
+
+            <div class="p-4 border-t border-blue-700">
+                <div class="flex items-center gap-3 py-1 mt-2 hover:bg-blue-800 rounded">
+                    <!-- 40x40 size ki random profile image. -->
+                    <!-- profile -->
+                    <div>
+                        <img src="./assets/user.png" alt="" class="h-9">
+                    </div>
+                    <div>
+                        <p class="font-semibold">Profile</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 py-1 mt-2 hover:bg-blue-800 rounded">
+                    <!-- 40x40 size ki random profile image. -->
+                    <!-- profile -->
+                    <div>
+                        <img src="./assets/logout.png" alt="" class="h-9">
+                    </div>
+                    <div>
+                        <p class="font-semibold">Logout</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="flex-1 p-4 py-0 h-full overflow-y-auto">
+
+
+            <!-- Top Navbar -->
+            <div
+                class="bg-white p-1 rounded-xl shadow flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="relative w-full md:w-1/3">
+                    <input type="text" placeholder="Search..."
+                        class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none" />
+                    <span class="absolute left-3 top-2.5">🔍</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        🔔
+                        <span
+                            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">1</span>
+                    </div>
+
+                    <img src="https://i.pravatar.cc/40" class="w-10 h-10 rounded-full">
+                    <span class="font-semibold">Alex Johnson</span>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-2">
+
+                <div class="bg-white p-2 rounded-xl shadow">
+                    <p class="text-gray-500">Total Projects</p>
+                    <h2 class="text-3xl font-bold mt-1">24</h2>
+                </div>
+
+                <div class="bg-white p-2 rounded-xl shadow">
+                    <p class="text-gray-500">Tasks Completed</p>
+                    <h2 class="text-3xl font-bold mt-1">128</h2>
+                    <p class="text-green-500 text-sm mt-1">+12% this week</p>
+                </div>
+
+                <div class="bg-white p-2 rounded-xl shadow">
+                    <p class="text-gray-500">Pending Tasks</p>
+                    <h2 class="text-3xl font-bold mt-1">8</h2>
+                    <p class="text-red-500 text-sm mt-1">-5% this week</p>
+                </div>
+
+                <div class="bg-white p-2 rounded-xl shadow">
+                    <p class="text-gray-500">Messages</p>
+                    <h2 class="text-3xl font-bold mt-1">32</h2>
+                </div>
+
+            </div>
+
+            <!-- Middle Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-1 mt-2">
+
+                <!-- Overview Chart -->
+                <div class="bg-white p-2 rounded-xl shadow lg:col-span-2">
+                    <h3 class="text-xl font-semibold mb-2">Overview</h3>
+
+                    <div class="h-38 border rounded-lg p-2">
+                        <canvas id="myChart" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+
+
+                <!-- Quick Links -->
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg mb-3 hover:bg-blue-700">
+                        New Project
+                    </button>
+
+                    <button class="w-full bg-blue-800 text-white py-3 rounded-lg mb-3 hover:bg-blue-900">
+                        Upload Files
+                    </button>
+
+                    <button class="w-full border py-3 rounded-lg hover:bg-gray-100">
+                        Support Tickets
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Recent Projects -->
+            <div class="bg-white p-3 rounded-xl shadow mt-2">
+                <h3 class="text-xl font-semibold mb-4">Recent Projects</h3>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left min-w-150">
+                        <thead>
+                            <tr class="text-gray-500 border-b">
+                                <th class="py-0">Project</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Team</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="divide-y">
+
+                            <tr>
+                                <td class="py-2 font-medium">Admin Dashboard</td>
+                                <td><span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">In
+                                        Progress</span></td>
+                                <td>May 25, 2024</td>
+                                <td class="space-x-1">👤 👤 👤</td>
+                            </tr>
+
+                            <tr>
+                                <td class="py-2 font-medium">E-Commerce Site</td>
+                                <td><span
+                                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Completed</span>
+                                </td>
+                                <td>May 10, 2024</td>
+                                <td class="space-x-1">👤 👤 👤</td>
+                            </tr>
+
+                            <tr>
+                                <td class="py-2 font-medium">Mobile App Design</td>
+                                <td><span
+                                        class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Pending</span>
+                                </td>
+                                <td>Jun 05, 2024</td>
+                                <td class="space-x-1">👤 👤 👤</td>
+                            </tr>
+
+                            <!-- <tr>
+                                <td class="py-2 font-medium">Portfolio Website</td>
+                                <td><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">In
+                                        Review</span></td>
+                                <td>Jun 15, 2024</td>
+                                <td class="space-x-1">👤 👤 👤</td>
+                            </tr> -->
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                datasets: [{
+                    label: 'Visitors',
+                    data: [12, 19, 8, 15, 22],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
